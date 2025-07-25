@@ -1,0 +1,7 @@
+<h1>{{ board.name }}</h1>
+<a href="/boards/{{ board.id }}/new/">New Topic</a>
+<ul>
+  {% for topic in topics %}
+    <li><a href="/topics/{{ topic.id }}/">{{ topic.title }}</a></li>
+  {% endfor %}
+</ul>

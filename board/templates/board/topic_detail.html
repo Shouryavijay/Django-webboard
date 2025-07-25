@@ -1,0 +1,7 @@
+<h2>{{ topic.title }}</h2>
+<a href="/topics/{{ topic.id }}/reply/">Reply</a>
+<ul>
+  {% for post in posts %}
+    <li>{{ post.message }}</li>
+  {% endfor %}
+</ul>

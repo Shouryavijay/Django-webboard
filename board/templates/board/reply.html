@@ -1,0 +1,6 @@
+<h2>Reply to Topic</h2>
+<form method="post">
+  {% csrf_token %}
+  <textarea name="message"></textarea><br>
+  <button type="submit">Post</button>
+</form>
