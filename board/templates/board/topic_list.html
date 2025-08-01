@@ -1,7 +1,21 @@
-<h1>{{ board.name }}</h1>
-<a href="/boards/{{ board.id }}/new/">New Topic</a>
-<ul>
-  {% for topic in topics %}
-    <li><a href="/topics/{{ topic.id }}/">{{ topic.title }}</a></li>
-  {% endfor %}
-</ul>
+<!-- board/templates/board/topic_list.html -->
+{% extends 'board/base.html' %}
+
+{% block content %}
+  <h2 class="text-2xl font-semibold mb-4">{{ board.name }}</h2>
+  <a href="{% url 'board:new_topic' board_id=board.id %}" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mb-4 inline-block">
+    New Topic
+  </a>
+  
+  <ul class="space-y-2">
+    {% for topic in topics %}
+      <li class="bg-white shadow rounded p-4">
+        <a href="{% url 'board:topic_detail' board_id=board.id topic_id=topic.id %}" class="text-blue-600 font-medium text-lg">
+          {{ topic.subject }}
+        </a>
+      </li>
+    {% empty %}
+      <li>No topics yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,6 +1,12 @@
-<h1>Boards</h1>
-<ul>
-  {% for board in boards %}
-    <li>{{ board.name }}</li>
-  {% endfor %}
-</ul>
+{% extends 'board/base.html' %}
+{% block content %}
+<h2 class="text-2xl font-bold mb-4">Boards</h2>
+<div class="space-y-2">
+    {% for board in boards %}
+    <div class="bg-white shadow rounded p-4">
+        <a href="{% url 'board:topic_list' board_id=board.pk %}" class="text-blue-600 font-medium text-lg">{{ board.name }}</a>
+        <p class="text-gray-600">{{ board.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

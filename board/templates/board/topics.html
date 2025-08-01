@@ -1,0 +1,15 @@
+<h2>{{ board.name }}</h2>
+<p>{{ board.description }}</p>
+
+<a href="{% url 'new_topic' board.pk %}">+ New Topic</a>
+
+<ul>
+    {% for topic in topics %}
+        <li>
+            <a href="{% url 'topic_posts' board.pk topic.pk %}">{{ topic.subject }}</a>
+            by {{ topic.created_by }}
+        </li>
+    {% empty %}
+        <li>No topics in this board yet.</li>
+    {% endfor %}
+</ul>
