@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7jmzph%4e856)l+u!!pzxrvr25)j*g*#xv4w9g95@opho^x9!5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.onrender.con']
 
 
 # Application definition
@@ -127,3 +127,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_URL = '/static/'
+
+import os
+MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
